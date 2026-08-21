@@ -1,0 +1,46 @@
+<section class="cartoes">
+
+    <!-- Cartão 1 -->
+    <article class="cartao">
+      <div class="cartao-interno">
+        <div class="cartao-frente">
+          <img src="imagem1.jpg" alt="Imagem do primeiro flashcard">
+          <h2>Pergunta 1</h2>
+        </div>
+  
+        <div class="cartao-verso">
+          <p>Resposta do primeiro flashcard.</p>
+        </div>
+      </div>
+    </article>
+  
+    <!-- Cartão 2 -->
+    <article class="cartao">
+      <div class="cartao-interno">
+        <div class="cartao-frente">
+          <img src="imagem2.jpg" alt="Imagem do segundo flashcard">
+          <h2>Pergunta 2</h2>
+        </div>
+  
+        <div class="cartao-verso">
+          <p>Resposta do segundo flashcard.</p>
+        </div>
+      </div>
+    </article>
+  
+    <!-- Cartão 3 -->
+    <article class="cartao">
+      <div class="cartao-interno">
+        <div class="cartao-frente">
+          <img src="imagem3.jpg" alt="Imagem do terceiro flashcard">
+          <h2>Pergunta 3</h2>
+        </div>
+  
+        <div class="cartao-verso">
+          <p>Resposta do terceiro flashcard.</p>
+        </div>
+      </div>
+    </article>
+  
+  </section>
+  
