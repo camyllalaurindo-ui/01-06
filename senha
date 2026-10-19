@@ -1,0 +1,27 @@
+import hashlib
+import itertools
+
+
+# 1. Função para calcular o hash (Exemplo usando MD5)
+def calcula_hash(texto):
+    if isinstance(texto, tuple):  # Ajuste caso o texto venha como tupla do itertools
+        texto = "".join(texto)
+    return hashlib.md5(texto.encode("utf-8")).hexdigest()
+
+
+# 2. Definição do alvo (Simulando uma senha esquecida)
+senha_nova = "mar"
+hash_novo = calcula_hash(senha_nova)
+
+# 3. Dicionário de caracteres (Onde o algoritmo vai buscar as letras)
+caracteres = "abcdefghijklmnopqrstuvwxyzABC123!@#$"
+
+# 4. Execução do Ataque de Força Bruta
+# repeat=len(senha_nova) define que testaremos apenas combinações com o mesmo tamanho da senha alvo
+for combinacao in itertools.product(caracteres, repeat=len(senha_nova)):
+
+    # Compara o hash da tentativa com o hash alvo
+    if calcula_hash(combinacao) == hash_novo:
+        senha_descoberta = "".join(combinacao)
+        print(f"🔑 Senha encontrada: {senha_descoberta}")
+        break  # Interrompe o laço imediatamente ao encontrar
