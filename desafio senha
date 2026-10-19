@@ -1,0 +1,36 @@
+import hashlib
+import itertools
+
+
+# Função que calcula o hash MD5 de uma string
+def calcula_hash(texto):
+    return hashlib.md5(texto.encode("utf-8")).hexdigest()
+
+
+# --- CONFIGURAÇÃO DO DESAFIO ---
+# Senha curta de teste (Dica 1)
+senha_alvo = "lua"
+hash_alvo = calcula_hash(senha_alvo)
+
+# Conjunto reduzido de caracteres para o teste ser rápido (Dica 1)
+caracteres = "abcdefghijklmnopqrstuvwxyz"
+
+print(f"Iniciando ataque de força bruta para a senha: {senha_alvo}")
+print("Mostrando progresso das tentativas...\n")
+
+# --- EXECUÇÃO DO ATAQUE ---
+# O 'repeat=3' garante que buscaremos senhas de até 3 caracteres
+for combinacao in itertools.product(caracteres, repeat=3):
+
+    # Transforma a tupla ('l', 'u', 'a') em uma string "lua" (Dica 2 e 3)
+    tentativa_palavra = "".join(combinacao)
+
+    # Mostra o progresso na tela testando cada combinação
+    print(f"Testando: {tentativa_palavra}")
+
+    # Calcula o hash da palavra gerada e compara com o hash alvo
+    if calcula_hash(tentativa_palavra) == hash_alvo:
+        print("\n" + "=" * 30)
+        print(f"🔑 SUCESSO! Senha encontrada: {tentativa_palavra}")
+        print("=" * 30)
+        break
